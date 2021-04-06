@@ -9,12 +9,12 @@
 - 写出插入数据的语句和查询数据的语句，并分析语句的执行计划。
 - 进行分区与不分区的对比实验。
 ### 实验步骤
-#### 首先创建自己的账号your_user，然后以system身份登录:
+#### 首先创建自己的账号user_ChenChen，然后以system身份登录:
 ```sql
 [student@deep02 ~]$sqlplus system/123@localhost/pdborcl
-SQL>ALTER USER your_user QUOTA UNLIMITED ON USERS;
-SQL>ALTER USER your_user QUOTA UNLIMITED ON USERS02;
-SQL>ALTER USER your_user QUOTA UNLIMITED ON USERS03;
+SQL>ALTER USER user_ChenChen QUOTA UNLIMITED ON USERS;
+SQL>ALTER USER user_ChenChen QUOTA UNLIMITED ON USERS02;
+SQL>ALTER USER user_ChenChen QUOTA UNLIMITED ON USERS03;
 SQL>exit
 ```
 - 运行结果：
@@ -22,10 +22,10 @@ SQL>exit
 ![avatar](./imge/sql_1_1.png)
 ![avatar](./imge/sql_1_2.png)
 
-#### 然后以自己的账号your_user身份登录,并运行脚本文件test3.sql:
+#### 然后以自己的账号user_ChenChen身份登录,并运行脚本文件test3.sql:
 ```sql
 [student@deep02 ~]$cat test3.sql
-[student@deep02 ~]$sqlplus your_user/123@localhost/pdborcl
+[student@deep02 ~]$sqlplus user_ChenChen/123@localhost/pdborcl
 SQL>@test3.sql
 SQL>exit
 ```
@@ -38,7 +38,7 @@ SQL>exit
 ```sql
 set autotrace on
 
-select * from your_user.orders where order_date
+select * from user_ChenChen.orders where order_date
 between to_date('2017-1-1','yyyy-mm-dd') and to_date('2018-6-1','yyyy-mm-dd');
 
 select a.ORDER_ID,a.CUSTOMER_NAME,
