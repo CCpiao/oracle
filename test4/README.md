@@ -467,6 +467,7 @@ END;
 ALTER TRIGGER "ORDERS_TRIG_ROW_LEVEL" DISABLE;
 ```
 运行结果：
+
 ![avatar](./imag/8_1.png)
 ![avatar](./imag/8_2.png)
 ![avatar](./imag/8_3.png)
