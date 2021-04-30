@@ -31,6 +31,7 @@
     GRANT CREATE VIEW TO STUDY WITH ADMIN OPTION;
 ```
 运行结果：
+
 ![avatar](./imag/1.png)
 
 #### 第2步：创建 DEPARTMENTS表：
@@ -77,6 +78,7 @@ CREATE TABLE DEPARTMENTS
     NOCOMPRESS NO INMEMORY NOPARALLEL;
 ```
 运行结果：
+
 ![avatar](./imag/2.png)
 #### 第3步：创建 EMPLOYEES表并创建约束和索引：
 ```sql
@@ -204,6 +206,7 @@ CREATE TABLE EMPLOYEES
   ENABLE;
 ```
 运行结果：
+
 ![avatar](./imag/3_1.png)
 ![avatar](./imag/3_2.png)
 ![avatar](./imag/3_3.png)
@@ -247,6 +250,7 @@ CREATE TABLE PRODUCTS
    COMMENT ON TABLE "ORDER_ID_TEMP"  IS '用于触发器存储临时ORDER_ID';
 ```
 运行结果：
+
 ![avatar](./imag/4.png)
 #### 第5步：创建ORDERS表并创建此表的索引：
 ```sql
@@ -357,6 +361,7 @@ CREATE TABLE PRODUCTS
   ENABLE;
 ```
 运行结果：
+
 ![avatar](./imag/5_1.png)
 ![avatar](./imag/5_2.png)
 ![avatar](./imag/5_3.png)
@@ -424,6 +429,7 @@ ADD CONSTRAINT ORDER_DETAILS_PRODUCT_NUM CHECK
 ENABLE;
 ```
 运行结果：
+
 ![avatar](./imag/6_1.png)
 ![avatar](./imag/6_2.png)
 ![avatar](./imag/6_3.png)
@@ -451,6 +457,7 @@ END;
 /
 ```
 运行结果：
+
 ![avatar](./imag/7_1.png)
 ![avatar](./imag/7_2.png)
 ![avatar](./imag/7_3.png)
@@ -481,6 +488,7 @@ ALTER TRIGGER "ORDERS_TRIG_ROW_LEVEL" DISABLE;
   FROM ORDERS o,ORDER_DETAILS d,PRODUCTS p where d.ORDER_ID=o.ORDER_ID and d.PRODUCT_NAME=p.PRODUCT_NAME;
 ```
 运行结果：
+
 ![avatar](./imag/9_1.png)
 ![avatar](./imag/9_2.png)
 
@@ -494,6 +502,7 @@ ALTER TRIGGER "ORDERS_TRIG_ROW_LEVEL" DISABLE;
   insert into products (product_name,product_type) values ('computer1','电脑');
 ```
 运行结果：
+
 ![avatar](./imag/10.png)
 #### 第11步：批量插入订单数据：
 ```sql
@@ -526,6 +535,7 @@ ALTER TRIGGER "ORDERS_TRIG_ROW_LEVEL" DISABLE;
   NOCOMPRESS;
 ```
 运行结果：
+
 ![avatar](./imag/11_1.png)
 ![avatar](./imag/11_2.png)
 ![avatar](./imag/11_3.png)
@@ -552,6 +562,7 @@ select table_name,tablespace_name,num_rows from user_tables where table_name='OR
 select table_name,tablespace_name,num_rows from user_tables where table_name='ORDER_DETAILS';
 ```
 运行结果：
+
 ![avatar](./imag/12_1.png)
 ![avatar](./imag/12_2.png)
 ![avatar](./imag/12_3.png)
@@ -561,6 +572,7 @@ select table_name,tablespace_name,num_rows from user_tables where table_name='OR
 [oracle@cdh3 ~]$ ls -lh /home/oracle/app/oracle/oradata/orcl/pdborcl/pdbtest_user*;
 ```
 运行结果：
+
 ![avatar](./imag/13.png)
 ### 实验分析
 本次实验主要是进行数据库表操作，首先连接上老师的数据库然后连接自己的用户进行实验。创建表三个数据表，再给三个表进行权限操作，插入实验所需的数据。在设计表结构时，需要选择适当的数据类型以节省存储空间；当表中的数据量不断增大，对表进行分区，逻辑上表仍然是一张完整的表，这样查询数据时，不至于每次都扫描整张表。
