@@ -54,6 +54,7 @@ END MyPack;
 /
 ```
 运行结果：
+
 ![avatar](./imag/1.png)
 #### 第2步：测试数据：
 ```sql
@@ -74,6 +75,7 @@ BEGIN
 END;
 ```
 运行结果：
+
 ![avatar](./imag/2_1.png)
 ![avatar](./imag/2_2.png)
 ### 实验分析
