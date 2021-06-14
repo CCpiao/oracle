@@ -515,27 +515,27 @@ SQL> create or replace procedure get_ticket_info
 
   9  select hname,sid,sname,ticket
 
- 10  into s\_name,c\_no,c\_name,s\_ticket
+ 10  into s_name,c_no,c_name,s_ticket
 
  11  from ticket where hostid=s_no;
 
- 12  DBMS\_OUTPUT.PUT\_LINE('主播姓名：'||s_name);
+ 12  DBMS_OUTPUT.PUT_LINE('主播姓名：'||s_name);
 
- 13  DBMS\_OUTPUT.PUT\_LINE('公会编号：'||c_no);
+ 13  DBMS_OUTPUT.PUT_LINE('公会编号：'||c_no);
 
- 14  DBMS\_OUTPUT.PUT\_LINE('公会名称：'||c_name);
+ 14  DBMS_OUTPUT.PUT_LINE('公会名称：'||c_name);
 
- 15  DBMS\_OUTPUT.PUT\_LINE('票数：'||s_ticket);
+ 15  DBMS_OUTPUT.PUT_LINE('票数：'||s_ticket);
 
- 16  end get\_ticket\_info;
+ 16  end get_ticket_info;
 
  17  /
 ```
-调用get\_ticket\_info存储过程。例如获取hostid为1401的主播的刷票信息，如下：
+调用get_ticket_info存储过程。例如获取hostid为1401的主播的刷票信息，如下：
 ```sql
 SQL> set serveroutput on
 
-SQL> exec get\_ticket\_info(1402);
+SQL> exec get_ticket_info(1402);
 ```
 **七、函数**
 ========
@@ -568,7 +568,7 @@ SQL> create function get_hname(host_num number)
 SQL> select get_hname(1) from dual;
 ```
 
-**2. ******创建一个函数re_********host********_info****
+2. 创建一个函数re_host_info
 -------------------------------------------------
 
 创建一个函数re_host_info,以平台号为参数，返回各个平台总平均票数。
@@ -656,7 +656,7 @@ SQL>Create user RMAN identified by RMAN default tablespace tools temporary table
 ```
 3.  给RMAN授予权限
 ```sql
-SQL>Grant connect , resource , recovery\_catalog\_owner to rman;
+SQL>Grant connect , resource , recovery_catalog_owner to rman;
 ```
 4.  打开RMAN
 ```sql
