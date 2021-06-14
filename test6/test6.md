@@ -212,13 +212,13 @@ SQL> create table ticket(
 -----------------
 
 *   在platform表中的pname列上创建pname_index的索引
-
+```sql
 SQL> create index pname_index
 
   2  on platform(pname)
 
   3  tablespace hostspace;
-
+```
 *   打开platform表中platform列上的pid_index索引的监控状态
 ```sql
 SQL> alter index pname_index monitoring usage;
